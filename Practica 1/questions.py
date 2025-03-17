@@ -29,7 +29,7 @@ puntaje_total = 0.0
 # Índice de la respuesta correcta para cada pregunta, el el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 
-questions_to_ask = random.choices(list(zip(questions, answers, correct_answers_index)), k=3)
+questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_index)), k=3)
 
 for question, options, correct_index in questions_to_ask:
     print(question)
@@ -47,7 +47,7 @@ for question, options, correct_index in questions_to_ask:
             sys.exit(1)
 
         if (user_answer == correct_index):
-            print("¡Correcto!")
+            print("¡Correcto!\n")
             puntaje_total += 1.0
             break
         else:
@@ -55,8 +55,6 @@ for question, options, correct_index in questions_to_ask:
     else:
         # Si el usuario no responde correctamente después de 2 intentos,
         # se muestra la respuesta correctas
-        print(f"Incorrecto. La respuesta correcta es: {correct_index + 1}) {options[correct_index]}")
+        print(f"Incorrecto. La respuesta correcta es: {correct_index + 1}) {options[correct_index]}\n")
 
-        # Se imprime un blanco al final de la pregunta
-        print()
 print(f"El puntaje total es: {puntaje_total}")
