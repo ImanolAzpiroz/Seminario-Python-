@@ -24,6 +24,8 @@ answers = [
 ("=", "==", "!=", "==="),
 ]
 
+puntaje_total = 0.0
+
 # Índice de la respuesta correcta para cada pregunta, el el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 
@@ -49,7 +51,10 @@ for _ in range(3):
         # Se verifica si la respuesta es correcta
         if user_answer == correct_answers_index[question_index]:
             print("¡Correcto!")
+            puntaje_total += 1.0
             break
+        else:
+            puntaje_total -= .5
     else:
         # Si el usuario no responde correctamente después de 2 intentos,
         # se muestra la respuesta correctas
@@ -58,3 +63,4 @@ for _ in range(3):
 
         # Se imprime un blanco al final de la pregunta
         print()
+print(f"El puntaje total es: {puntaje_total}")
